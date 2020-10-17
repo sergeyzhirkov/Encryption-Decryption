@@ -1,11 +1,18 @@
 package encryptdecrypt;
 
+import java.util.Scanner;
+
 public class Main {
     public static void main(String[] args) {
-        System.out.println(encryptString("we found a treasure!".toLowerCase()));
+        Scanner scanner = new Scanner(System.in);
+        String input = scanner.nextLine();
+        int key = scanner.nextInt();
+        Encryptor encryptor = new Encryptor(input, key);
+        System.out.println(encryptor.getEncryptMessage());
     }
 
     private static String encryptString(String input) {
+
         StringBuilder stringBuilder = new StringBuilder();
         for (int i = 0; i < input.length(); i++) {
             if (input.charAt(i) >= 'a' && input.charAt(i) <= 'z') {
