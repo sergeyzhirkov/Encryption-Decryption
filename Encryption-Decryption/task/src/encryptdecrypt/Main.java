@@ -5,10 +5,18 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
+        String operation = scanner.nextLine();
         String input = scanner.nextLine();
         int key = scanner.nextInt();
-        Encryptor encryptor = new Encryptor(input, key);
-        System.out.println(encryptor.getEncryptMessage());
+        if (operation.equals("enc")) {
+            Encryptor encryptor = new Encryptor(input, key);
+            System.out.println(encryptor.getEncryptMessage());
+        }
+        if (operation.equals("dec")) {
+            Decryptor decryptor = new Decryptor(input, key);
+            System.out.println(decryptor.getDecryptMessage());
+        }
+
     }
 
     private static String encryptString(String input) {
