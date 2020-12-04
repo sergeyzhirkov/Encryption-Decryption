@@ -10,6 +10,7 @@ public class Parser {
     private String data = "";
     private OutputData outputData;
     private InputData inputData;
+    private Algorithm alg = Algorithm.SHIFT;
 
     public Parser(String[] args, OutputData outputData) {
         this.args = args;
@@ -42,6 +43,15 @@ public class Parser {
                 data = inputData.getData();
             }
         }
+        if (arg.equals("-alg")) {
+            if (arg1.equals("unicode")) {
+                alg = Algorithm.UNICODE;
+            }
+        }
+    }
+
+    public Algorithm getAlg() {
+        return alg;
     }
 
     public Operation getMode() {
